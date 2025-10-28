@@ -37,7 +37,7 @@ if opcao == "1":
             jogador_primario_coluna = int(input("Jogador 1 escolha a coluna (0 a 6): "))
             
             if tabuleiro[jogador_primario_linha][jogador_primario_coluna] == " " :
-                for jogador_primario_linha in range(6, -1, -1):  # começa da linha 6 e sobe até 0
+                for jogador_primario_linha in range(6, -1, -1):  
                     if tabuleiro[jogador_primario_linha][jogador_primario_coluna] == " ":
                         tabuleiro[jogador_primario_linha][jogador_primario_coluna] = "X"
                         break
@@ -54,17 +54,17 @@ if opcao == "1":
         print()
 
         vitoria = False
-        # Verifica linhas
+        # Linhas
         for i in range(7):
-            for j in range(4):  # até coluna 3 (pra não sair da matriz)
+            for j in range(4):
                 if (tabuleiro[i][j] == "X" and
                     tabuleiro[i][j+1] == "X" and
                     tabuleiro[i][j+2] == "X" and
                     tabuleiro[i][j+3] == "X"):
                     vitoria = True
         
-        # Verifica colunas
-        for i in range(4):  # até linha 3
+        # Colunas
+        for i in range(4):
             for j in range(7):
                 if (tabuleiro[i][j] == "X" and
                     tabuleiro[i+1][j] == "X" and
@@ -72,7 +72,7 @@ if opcao == "1":
                     tabuleiro[i+3][j] == "X"):
                     vitoria = True
 
-        # Verifica diagonais ↘
+        # Diagonais (1)
         for i in range(4):
             for j in range(4):
                 if (tabuleiro[i][j] == "X" and
@@ -81,7 +81,7 @@ if opcao == "1":
                     tabuleiro[i+3][j+3] == "X"):
                     vitoria = True
 
-        # Verifica diagonais ↙
+        # Diagonais (2)
         for i in range(4):
             for j in range(3, 7):
                 if (tabuleiro[i][j] == "X" and
@@ -90,7 +90,7 @@ if opcao == "1":
                     tabuleiro[i+3][j-3] == "X"):
                     vitoria = True
 
-        # Se ganhou, mostra o tabuleiro e termina
+        # Vitória
         if vitoria:
             print()
             for i in range(7):
@@ -101,7 +101,7 @@ if opcao == "1":
             print("\nJogador 1 venceu!\n")
             break
 
-        # Verifica empate (sem espaços vazios)
+        # Empate
         cheio = True
         for i in range(7):
             for j in range(7):
@@ -118,7 +118,7 @@ if opcao == "1":
             jogador_secundario_coluna = int(input("Jogador 2escolha a linha (0 a 6): "))
             
             if tabuleiro[jogador_secundario_linha][jogador_secundario_coluna] == " " :
-                for jogador_secundario_linha in range(6, -1, -1):  # começa da linha 6 e sobe até 0
+                for jogador_secundario_linha in range(6, -1, -1): 
                     if tabuleiro[jogador_secundario_linha][jogador_secundario_coluna] == " ":
                         tabuleiro[jogador_secundario_linha][jogador_secundario_coluna] = "O"
                         break
@@ -135,17 +135,17 @@ if opcao == "1":
         print()
 
         vitoria = False
-        # Verifica linhas
+        # Linhas
         for i in range(7):
-            for j in range(4):  # até coluna 3 (pra não sair da matriz)
+            for j in range(4):
                 if (tabuleiro[i][j] == "O" and
                     tabuleiro[i][j+1] == "O" and
                     tabuleiro[i][j+2] == "O" and
                     tabuleiro[i][j+3] == "O"):
                     vitoria = True
         
-        # Verifica colunas
-        for i in range(4):  # até linha 3
+        # Colunas
+        for i in range(4):
             for j in range(7):
                 if (tabuleiro[i][j] == "O" and
                     tabuleiro[i+1][j] == "O" and
@@ -153,7 +153,7 @@ if opcao == "1":
                     tabuleiro[i+3][j] == "O"):
                     vitoria = True
 
-        # Verifica diagonais ↘
+        # Diagonais (1)
         for i in range(4):
             for j in range(4):
                 if (tabuleiro[i][j] == "O" and
@@ -162,7 +162,7 @@ if opcao == "1":
                     tabuleiro[i+3][j+3] == "O"):
                     vitoria = True
 
-        # Verifica diagonais ↙
+        # Diagonais (2)
         for i in range(4):
             for j in range(3, 7):
                 if (tabuleiro[i][j] == "O" and
@@ -171,7 +171,7 @@ if opcao == "1":
                     tabuleiro[i+3][j-3] == "O"):
                     vitoria = True
 
-        # Se ganhou, mostra o tabuleiro e termina
+        # Vitória
         if vitoria:
             print()
             for i in range(7):
@@ -182,7 +182,7 @@ if opcao == "1":
             print("\nJogador 1 venceu!\n")
             break
 
-        # Verifica empate (sem espaços vazios)
+        # Empate
         cheio = True
         for i in range(7):
             for j in range(7):
