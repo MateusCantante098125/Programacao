@@ -20,11 +20,13 @@ if opcao == "1":
     
     while True:
     
-        print(tabuleiro[0][0], "|", tabuleiro[0][1], "|", tabuleiro[0][2])
-        print("---------")
-        print(tabuleiro[1][0], "|", tabuleiro[1][1], "|", tabuleiro[1][2])
-        print("---------")
-        print(tabuleiro[2][0], "|", tabuleiro[2][1], "|", tabuleiro[2][2])
+        print()
+        for i in range(3):
+            for j in range(3):
+                print(tabuleiro[i][j], end=" | ")
+            print()
+            print("-" * 9)
+        print()
         
         while True:
             jogador_primario_linha = int(input("Jogador 1, escolha a linha (0, 1 ou 2): "))
@@ -36,59 +38,58 @@ if opcao == "1":
             else:
                 print("Posição já ocupada, escolha outra.")
         
-        print(tabuleiro[0][0], "|", tabuleiro[0][1], "|", tabuleiro[0][2])
-        print("---------")
-        print(tabuleiro[1][0], "|", tabuleiro[1][1], "|", tabuleiro[1][2])
-        print("---------")
-        print(tabuleiro[2][0], "|", tabuleiro[2][1], "|", tabuleiro[2][2])
+        print()
+        for i in range(3):
+            for j in range(3):
+                print(tabuleiro[i][j], end=" | ")
+            print()
+            print("-" * 9)
+        print()
         
-        if tabuleiro[0][0] == "X" and tabuleiro[0][1] == "X" and tabuleiro[0][2] == "X":
-            print("Jogador 1 venceu!")
+        vitoria = False
+        # Linhas
+        for i in range(3):
+            j = 0  
+            if (tabuleiro[i][j] == "X" and
+                tabuleiro[i][j+1] == "X" and
+                tabuleiro[i][j+2] == "X" ):
+                vitoria = True
+        
+        # Colunas
+        for j in range(3):
+            i=0
+            if (tabuleiro[i][j] == "X" and
+                tabuleiro[i+1][j] == "X" and
+                tabuleiro[i+2][j] == "X" ):
+                vitoria = True
+
+        # Diagonais 
+        
+        if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] == "X":
+            vitoria = True
+        if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] == "X":
+            vitoria = True
+
+        # Vitória
+        if vitoria:
+            print()
+            for i in range(3):
+                for j in range(3):
+                    print(tabuleiro[i][j], end=" | ")
+                print()
+                print("-" * 9)
+            print("\nJogador 1 venceu!\n")
             break
-        elif tabuleiro[1][0] == "X" and tabuleiro[1][1] == "X" and tabuleiro[1][2] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[2][0] == "X" and tabuleiro[2][1] == "X" and tabuleiro[2][2] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "X" and tabuleiro[1][0] == "X" and tabuleiro[2][0] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][1] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][1] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][2] == "X" and tabuleiro[1][2] == "X" and tabuleiro[2][2] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][2] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][2] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][0] == "X":
-            print("\nJogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[0][1] == "O" and tabuleiro[0][2] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[1][0] == "O" and tabuleiro[1][1] == "O" and tabuleiro[1][2] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[2][0] == "O" and tabuleiro[2][1] == "O" and tabuleiro[2][2] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[1][0] == "O" and tabuleiro[2][0] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[0][1] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][1] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[0][2] == "O" and tabuleiro[1][2] == "O" and tabuleiro[2][2] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][2] == "O":
-            print("\nJogador 2 venceu!")
-            break
-        elif tabuleiro[0][2] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][0] == "O":
-            print("\nJogador 2 venceu!")
+
+        # Empate
+        cheio = True
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] == " ":
+                    cheio = False
+
+        if cheio:
+            print("\nEmpate! O tabuleiro está cheio.\n")
             break
         
         
@@ -103,53 +104,58 @@ if opcao == "1":
             else:
                 print("Posição já ocupada, escolha outra.")
 
-        if tabuleiro[0][0] == "X" and tabuleiro[0][1] == "X" and tabuleiro[0][2] == "X":
-            print("Jogador 1 venceu!")
+        print()
+        for i in range(3):
+            for j in range(3):
+                print(tabuleiro[i][j], end=" | ")
+            print()
+            print("-" * 9)
+        print()
+        
+        vitoria = False
+        # Linhas
+        for i in range(3):
+            j = 0  
+            if (tabuleiro[i][j] == "O" and
+                tabuleiro[i][j+1] == "O" and
+                tabuleiro[i][j+2] == "O" ):
+                vitoria = True
+        
+        # Colunas
+        for j in range(3):
+            i=0
+            if (tabuleiro[i][j] == "O" and
+                tabuleiro[i+1][j] == "O" and
+                tabuleiro[i+2][j] == "O" ):
+                vitoria = True
+
+        # Diagonais 
+        
+        if tabuleiro[0][0] == tabuleiro[1][1] == tabuleiro[2][2] == "O":
+            vitoria = True
+        if tabuleiro[0][2] == tabuleiro[1][1] == tabuleiro[2][0] == "O":
+            vitoria = True
+
+        # Vitória
+        if vitoria:
+            print()
+            for i in range(3):
+                for j in range(3):
+                    print(tabuleiro[i][j], end=" | ")
+                print()
+                print("-" * 9)
+            print("\nJogador 2 venceu!\n")
             break
-        elif tabuleiro[1][0] == "X" and tabuleiro[1][1] == "X" and tabuleiro[1][2] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[2][0] == "X" and tabuleiro[2][1] == "X" and tabuleiro[2][2] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "X" and tabuleiro[1][0] == "X" and tabuleiro[2][0] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][1] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][1] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][2] == "X" and tabuleiro[1][2] == "X" and tabuleiro[2][2] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][2] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][2] == "X" and tabuleiro[1][1] == "X" and tabuleiro[2][0] == "X":
-            print("Jogador 1 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[0][1] == "O" and tabuleiro[0][2] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[1][0] == "O" and tabuleiro[1][1] == "O" and tabuleiro[1][2] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[2][0] == "O" and tabuleiro[2][1] == "O" and tabuleiro[2][2] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[1][0] == "O" and tabuleiro[2][0] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[0][1] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][1] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[0][2] == "O" and tabuleiro[1][2] == "O" and tabuleiro[2][2] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[0][0] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][2] == "O":
-            print("Jogador 2 venceu!")
-            break
-        elif tabuleiro[0][2] == "O" and tabuleiro[1][1] == "O" and tabuleiro[2][0] == "O":
-            print("Jogador 2 venceu!")
+
+        # Empate
+        cheio = True
+        for i in range(3):
+            for j in range(3):
+                if tabuleiro[i][j] == " ":
+                    cheio = False
+
+        if cheio:
+            print("\nEmpate! O tabuleiro está cheio.\n")
             break
         
 elif opcao == "2":
