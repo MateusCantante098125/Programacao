@@ -18,18 +18,19 @@ if opcao == "1":
     while True:
     
         f.mostrar_tabuleiro()
-        
         f.verificar_jogada("X")
-        
         f.mostrar_tabuleiro()
         
-        f.verificar_tabuleiro("X")
-
+        auxiliar = f.verificar_tabuleiro("X")
+        if auxiliar == 100:
+            break
+        
         f.verificar_jogada("O")
-
         f.mostrar_tabuleiro()
 
-        f.verificar_tabuleiro("O")
+        auxiliar = f.verificar_tabuleiro("O")
+        if auxiliar == 100:
+            break
         
 elif opcao == "2":
     print("Em Desenvolvimento...")

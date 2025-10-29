@@ -57,6 +57,7 @@ def verificar_tabuleiro(arg):
             print()
             print("-" * 9)
         print("\nJogador 1 venceu!\n")
+        return 100
 
     # Empate
     cheio = True
@@ -66,6 +67,7 @@ def verificar_tabuleiro(arg):
                 cheio = False
 
     if cheio:
-        return print("\nEmpate! O tabuleiro está cheio.\n")
+        print("\nEmpate! O tabuleiro está cheio.\n")
+        return 100
         
    
