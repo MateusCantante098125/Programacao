@@ -1,4 +1,4 @@
-import f_gloria as f
+import f_forca as f
 
 menu = {
     "1": "Novo Jogo",
@@ -13,7 +13,7 @@ for numero, texto in menu.items():
 opcao = input("Escolha uma opção: ")
 
 if opcao == "1":
-    print("Iniciando um novo jogo da Glória...\n")
+    print("Iniciando um novo jogo da Forca...\n")
     f.jogo()
 
 elif opcao == "2":
