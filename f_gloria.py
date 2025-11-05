@@ -24,7 +24,7 @@ def aplicar_casas_especiais(posicao,jogador):
     auxiliar = posicao
     casas_malditas = [12,17,23,28,34,42]
     
-    if posicao%3 == 0:
+    if posicao%3 == 0 and posicao > 0:
         valor_subtrair= randint(1,4)
         print(f"Casa {posicao} é amaldiçoada , o jogador {jogador} retrocedeu {valor_subtrair} casas .")
         posicao -= valor_subtrair
@@ -53,7 +53,7 @@ def aplicar_casas_especiais(posicao,jogador):
         tabuleiro[linha][coluna] = jogador
         return posicao,sem_jogar
 
-    elif posicao%5 == 0:
+    elif posicao%5 == 0 and posicao > 0:
         valor_adicionar= randint(1,4)
         print(f"Casa {posicao} é abençoada , o jogador {jogador} avançou {valor_adicionar} casas .")
         posicao += valor_adicionar
@@ -80,7 +80,7 @@ def aplicar_casas_especiais(posicao,jogador):
         tabuleiro[linha][coluna] = jogador
         return posicao,sem_jogar
 
-    elif posicao in casas_malditas:
+    elif posicao in casas_malditas and posicao > 0:
         valor = randint(1,3)
         sem_jogar = valor
         print(f"A casa {posicao} é maldita o jogador {jogador} fica {sem_jogar} vezes sem jogar .")
