@@ -26,3 +26,7 @@ elif escolha == "2":
 elif escolha == "3":
     import jogo_gloria
     jogo_gloria.jogo()
+
+elif escolha == "4":
+    import f_forca
+    f_forca.jogo()
