@@ -30,3 +30,10 @@ elif escolha == "3":
 elif escolha == "4":
     import f_forca
     f_forca.jogo()
+
+elif escolha == "5":
+    import f_minas
+    f_minas.jogo()
+
+else:
+    print("Opção inválida! Reinicie o programa.")
